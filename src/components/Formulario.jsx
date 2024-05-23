@@ -19,8 +19,6 @@ export function Formulario({setUser}) {
 
         setUser([nombre])
     }
-
-
     return (
         <section>
             <main>

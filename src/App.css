@@ -1,6 +1,21 @@
 #root {
-  width: 50%;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  flex-direction: row;
+}
+.App{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.mainImg{
+  width: 300px;
 }
