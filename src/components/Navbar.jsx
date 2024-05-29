@@ -8,14 +8,14 @@ function Navbar() {
       <img className="navbar__logo" src="" alt="" />
       </div>
       <div className="navbar__center">
-        <a href="#">Inicio</a>
-        <a href="#">Explorar</a>
-        <a href="#">Notificaciones</a>
-        <a href="#">Mensajes</a>
-        <a href="#">Guardados</a>  
-        <a href="#">Comunidades</a>
-        <a href="#">Perfil</a>
-        <a href="#">Más opciones</a>
+        <button href="#">Inicio</button>
+        <button href="#">Explorar</button>
+        <button href="#">Notificaciones</button>
+        <button href="#">Mensajes</button>
+        <button href="#">Guardados</button>  
+        <button href="#">Comunidades</button>
+        <button href="#">Perfil</button>
+        <button href="#">Más opciones</button>
       </div>
       <div className="navbar__right">
         <i className="far fa-search"></i>
