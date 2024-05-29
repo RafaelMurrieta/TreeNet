@@ -15,7 +15,6 @@ export function Formulario({ setUser }) {
             setError(true);
             return;
         }
-
         setError(false);
         setUser([nombre]);
         navigate("/home");
