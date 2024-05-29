@@ -1,4 +1,6 @@
+import React from 'react';
 import { FollowCard } from "./FollowCard";
+import Navbar from "./Navbar"; 
 import "./../index.css"
 
 export function Home({ user, setUser }) {
@@ -25,8 +27,8 @@ export function Home({ user, setUser }) {
   };
 
   return (
-
     <>
+        <Navbar /> {}
         <div className="home-display">
             <div className="home-row-left">
                 <section className="container-followingcard">
