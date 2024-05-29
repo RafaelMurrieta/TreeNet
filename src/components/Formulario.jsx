@@ -20,26 +20,23 @@ export function Formulario({setUser}) {
         setUser([nombre])
     }
     return (
-        <section>
-            <main>
-                <div></div>
+        <section className="section-form">
                 <div>
                     <h1>TREENET</h1>
                 <form className="formulario"
                 onSubmit={handleSubmit}>
-                    <input type="text"
+                    <input type="email" placeholder="Correo electronico"
                         value={nombre}
                         onChange={e => setNombre(e.target.value)}
                     />
-                    <input type="password"
+                    <input type="password" placeholder="Contraseña"
                         value={contraseña}
                         onChange={e => setContraseña(e.target.value)}
                     />
                     <button>Iniciar sesión</button>
                 </form>
-                {error && <p>Todos los campos son obligatorios</p>}
+                {error && <p className="validation-camps">Todos los campos son obligatorios</p>}
                 </div>
-            </main>
         </section>
     )
 }

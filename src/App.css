@@ -17,5 +17,14 @@
 
 }
 .mainImg{
-  width: 300px;
+  margin-top: 30px;
+  width: 550px;
 }
+@media (max-width: 768px) {
+  .mainImg{
+       height: 100%;
+       opacity: .2;
+       position: absolute;
+       z-index: 1;
+  }
+ }
