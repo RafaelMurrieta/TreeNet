@@ -24,7 +24,11 @@ export function Formulario({ setUser }) {
         <>
             <section className="section-form">
                 <div>
-                    <h1>TREENET</h1>
+                    <div>
+                    {/* <img src="treedevisIcon.svg" alt="" /> */}
+                        <h1>TREENET</h1>
+                        
+                    </div>
                     <form className="formulario" onSubmit={handleSubmit}>
                         <input type="email" placeholder="Correo electrónico"
                             value={nombre}
