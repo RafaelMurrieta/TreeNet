@@ -39,7 +39,7 @@ export function Formulario({ setUser }) {
                             onChange={e => setContraseña(e.target.value)}
                         />
                         <button>Iniciar sesión</button>
-                        <a href="/sing-create"><p>NO TIENES CUENTA, CREA UNA</p></a>
+                        <a href="/sing-create"><p>¿No tienes cuenta? Crea una</p></a>
                     </form>
                     {error && <p className="validation-camps">Todos los campos son obligatorios</p>}
                 </div>
