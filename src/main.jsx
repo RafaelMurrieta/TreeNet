@@ -8,7 +8,7 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: "/*",
-    element: <App />, // Usa el componente App como la raíz de las rutas
+    element: <App />, 
     errorElement: <NoFound />
   }
 ]);
