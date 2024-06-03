@@ -2,6 +2,8 @@ import React from 'react';
 import { FollowCard } from "./FollowCard";
 import Navbar from "./Navbar"; 
 import "./../index.css"
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export function Home({ user, setUser }) {
   const USERS = [
@@ -21,14 +23,16 @@ export function Home({ user, setUser }) {
       initialFollow: true
     }
   ];
+  const navigate= useNavigate();
 
   const handleLogout = () => {
     setUser([]);
+    navigate("/");
   };
 
   return (
     <>
-        <Navbar /> {}
+        <Navbar /> 
         <div className="home-display">
             <div className="home-row-left">
                 <section className="container-followingcard">
