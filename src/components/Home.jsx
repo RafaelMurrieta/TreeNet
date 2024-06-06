@@ -28,9 +28,10 @@ export function Home({ user, setUser }) {
         <Navbar setUser={setUser} /> 
         <div className="home-display">
           <div className="home-row-left"> 
+          <Search/>
           </div>
           <div className='home-row-right'>
-            <Search/>
+            
             <section className="container-followingcard">
               {USERS.map(({ user, userName, initialFollow }) => (
                 <FollowCard 

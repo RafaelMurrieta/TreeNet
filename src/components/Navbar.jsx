@@ -13,7 +13,7 @@ function Navbar({ setUser }) {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <img className="navbar__logo" src="src\assets\react.svg" alt="" />
+        <img className="navbar__logo" src="\treedevisIcon.svg" alt="" />
       </div>
       <div className="navbar__center">
         <button><i className="fas fa-home"></i> Inicio</button>
