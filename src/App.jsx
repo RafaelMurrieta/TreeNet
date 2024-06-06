@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import { Formulario } from './components/Formulario.jsx';
 import { Home } from './components/Home.jsx';
 import { Createaccount } from './components/Createaccount.jsx';
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/sign-in" />} />
           <Route path="/sign-in" element={<Formulario setUser={setUser} />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path="*" element={<NoFound />} />
           <Route path="/sign-create" element={<Createaccount />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
