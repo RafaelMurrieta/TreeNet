@@ -6,6 +6,7 @@ function Navbar({ setUser }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem('coockieFill');
     setUser(null);
     navigate("/");
   };

@@ -34,7 +34,6 @@ export function Home({ username, setUser }) {
         <Navbar setUser={setUser} /> 
         <div className="home-display">
           <div className="home-row-left"> 
-          <Search/>
           </div>
           <div className='home-row-right'>
             
