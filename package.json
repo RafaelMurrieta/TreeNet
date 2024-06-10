@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "homepage": "",
-=======
-  "homepage": "https://antonio-mj.github.io/TreeNet",
->>>>>>> b555c71d3c35fb638ab183826f410016e7d9d6ac
   "name": "test",
   "private": true,
   "version": "0.0.0",
@@ -14,9 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy":"gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
