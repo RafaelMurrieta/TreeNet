@@ -29,8 +29,19 @@
     color: rgb(229, 106, 106);
 }
 
+.container-createAccount{
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.title-form{
+    margin-bottom: 40px;
+}
+.section-form .create{
+    height: 600px;
+}
 @media (max-width: 768px) {
 
    .section-form{

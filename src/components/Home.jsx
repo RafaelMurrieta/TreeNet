@@ -1,10 +1,16 @@
 import React from 'react';
 import { FollowCard } from "./FollowCard";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./../index.css"
 import Search from './Search'; 
 
-export function Home({ user, setUser }) {
+export function Home({ username, setUser }) {
+  const coockie = localStorage.getItem('coockieFill');
+  if (coockie == [] || coockie === "" || !coockie) {
+    
+    return <Navigate to="/sign-in" />
+  }
   const USERS = [
     {
       user: 'Valorant',
