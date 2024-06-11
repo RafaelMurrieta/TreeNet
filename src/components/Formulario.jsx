@@ -57,7 +57,7 @@
                                 onChange={e => setContraseña(e.target.value)}
                             />
                             <button>Iniciar sesión</button>
-                            <a href="/sing-create"><p>¿No tienes cuenta? Crea una</p></a>
+                            <a href="/sing-create"><p>¿No tienes cuenta?, Crea una</p></a>
                         </form>
                         {error && <p className="validation-camps">Todos los campos son obligatorios</p>}
                         {loginError && <p className="validation-camps">Usuario no encontrado</p>}
