@@ -18,7 +18,7 @@ function Navbar({ setUser }) {
       </div>
       <div className="navbar__center">
         <button><i className="fas fa-home"></i> Inicio</button>
-        <button><i className="fas fa-search"></i> Explorar</button>
+        {/* <button><i className="fas fa-search"></i> Explorar</button> */}
         <button><i className="fas fa-bell"></i> Notificaciones</button>
         <button><i className="fas fa-envelope"></i> Mensajes</button>
         <button><i className="fas fa-bookmark"></i> Guardados</button>

@@ -11,6 +11,7 @@
   width: 10%;
   padding-top: 90px;
   z-index: 1;
+  align-items: flex-start;
 }
 
 .content {
@@ -67,5 +68,7 @@
 
 .navbar__logo {
   width: 100px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
 }
