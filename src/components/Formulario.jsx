@@ -57,8 +57,6 @@
                                 onChange={e => setContraseña(e.target.value)}
                             />
                             <button className="button-fixed">Iniciar sesión</button>
-                            <a href="/sing-create"><p>¿No tienes cuenta? Crea una</p></a>
-                            <button>Iniciar sesión</button>
                             <a href="/sing-create"><p>¿No tienes cuenta?, Crea una</p></a>
 
                         </form>
