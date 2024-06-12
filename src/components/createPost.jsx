@@ -27,7 +27,7 @@ const createPost = () => {
             </button>
           )}
 
-      <main className="py-8 px-4 md:px-8">
+      {/* <main className="py-8 px-4 md:px-8 ">
         <div className="w-full max-w-md mx-auto">
           <div>
             <div>Create Post</div>
@@ -53,12 +53,12 @@ const createPost = () => {
             </div>
           </div>
           <div>
-            <button onClick={handleSubmit} className="w-full">
+            <button  onClick={handleSubmit} className="w-full ">
               Publish
             </button>
           </div>
         </div>
-      </main>
+      </main> */}
     </div>
   )
 }
