@@ -3,7 +3,7 @@ import { FollowCard } from "./FollowCard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./../index.css"
-import Createpost from './CreatePost';
+import Createpost from '/src/components/CreatePost.jsx';
 
 export function Home({ username, setUser }) {
   const coockie = localStorage.getItem('coockieFill');
