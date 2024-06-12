@@ -24,7 +24,15 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
 }, { collection: 'users' });
 
+
+const PostUserSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    body: { type: String, required: true },
+    userId: { type: String, required: true },
+}, { collection: 'posts' });
+
 const User = mongoose.model('User', UserSchema);
+// const post = mongoose.model('Post', PostUserSchema);
 
 
 // Ruta para verificar usuario
@@ -53,6 +61,7 @@ app.post('/createAccount', async (req, res) => {
         const userCreate = await User.create({ name, username, email, password });
         console.log('Usuario creado:', userCreate);
         if (userCreate) {
+            console.log(userCreate._id);
             res.status(201).json({ success: true, message: 'Usuario creado exitosamente', user: userCreate });
         }
     } catch (error) {

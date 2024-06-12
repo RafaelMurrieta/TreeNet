@@ -1,6 +1,7 @@
     import React, { useState } from "react";
     import "./Formulario.css";
     import { useNavigate } from "react-router-dom";
+    import { Navigate } from "react-router-dom";
     import Imagen from "./Image.jsx";
 
     export function Formulario({ setUser }) {
@@ -34,7 +35,6 @@
                 localStorage.setItem('coockieFill', id);
                 setUser([nameuser]);
                 navigate("/home");
-                
             } else {
                 setLoginError(true);
             }
@@ -45,7 +45,7 @@
                 <section className="section-form">
                     <div>
                         <div>
-                            <h1>TREENET</h1>
+                            <h1 className="text-8xl fonttitle">TREENET</h1>
                         </div>
                         <form className="formulario" onSubmit={handleSubmit}>
                             <input type="email" placeholder="Correo electrónico"
@@ -56,8 +56,9 @@
                                 value={contraseña}
                                 onChange={e => setContraseña(e.target.value)}
                             />
-                            <button>Iniciar sesión</button>
-                            <a href="/sing-create"><p>¿No tienes cuenta? Crea una</p></a>
+                            <button className="button-fixed">Iniciar sesión</button>
+                            <a href="/sing-create"><p>¿No tienes cuenta?, Crea una</p></a>
+
                         </form>
                         {error && <p className="validation-camps">Todos los campos son obligatorios</p>}
                         {loginError && <p className="validation-camps">Usuario no encontrado</p>}
