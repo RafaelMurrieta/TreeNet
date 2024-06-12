@@ -47,6 +47,16 @@ export function Home({ username, setUser }) {
                 />
               ))}
             </section>
+            <section className="container-followingcard">
+              {USERS.map(({ user, userName, initialFollow }) => (
+                <FollowCard 
+                  user={user} 
+                  userName={userName} 
+                  initialFollow={initialFollow} 
+                  key={userName} 
+                />
+              ))}
+            </section>
           </div>
         </div>
     </>
