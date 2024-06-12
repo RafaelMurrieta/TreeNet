@@ -3,12 +3,11 @@ import { FollowCard } from "./FollowCard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./../index.css"
-import Search from './Search'; 
+import Createpost from './Createpost';
 
 export function Home({ username, setUser }) {
   const coockie = localStorage.getItem('coockieFill');
   if (coockie == [] || coockie === "" || !coockie) {
-    
     return <Navigate to="/sign-in" />
   }
   const USERS = [
@@ -33,11 +32,11 @@ export function Home({ username, setUser }) {
     <>
         <Navbar setUser={setUser} /> 
         <div className="home-display">
-          <div className="home-row-left"> 
-          <Search/>
+          <div className="home-row-left">
+            
           </div>
           <div className='home-row-right'>
-            
+          <Createpost />
             <section className="container-followingcard">
               {USERS.map(({ user, userName, initialFollow }) => (
                 <FollowCard 
