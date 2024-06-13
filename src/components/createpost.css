@@ -66,3 +66,11 @@
     padding: 1rem;
     font-size: 1rem;
 }
+
+.inputImage{
+    display: none;
+}
+.form-bottom-post{
+    display: grid;
+    justify-content: center;
+}
