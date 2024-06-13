@@ -74,3 +74,11 @@
     display: grid;
     justify-content: center;
 }
+.labelImg{
+    display: flex;
+    gap: .5rem;
+}
+
+.image-preview{
+    width: 3em;
+}
