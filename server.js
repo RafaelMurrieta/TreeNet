@@ -2,6 +2,7 @@ import express, { response } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import { type } from 'os';
 
 const app = express();
 const port = 3001;
@@ -26,13 +27,13 @@ const UserSchema = new mongoose.Schema({
 
 
 const PostUserSchema = new mongoose.Schema({
-    title: { type: String, required: true },
     body: { type: String, required: true },
     userId: { type: String, required: true },
-}, { collection: 'posts' });
+    image: { type: String, required: false }
+  }, { collection: 'post' });
 
 const User = mongoose.model('User', UserSchema);
-// const post = mongoose.model('Post', PostUserSchema);
+const PostUser = mongoose.model('PostUser', PostUserSchema);
 
 
 // Ruta para verificar usuario
@@ -69,6 +70,28 @@ app.post('/createAccount', async (req, res) => {
         res.status(500).json({ success: false, message: 'Error al crear usuario', error: error.message });
     }
 });
+
+app.post('/createpost', async (req, res) => {
+    const { body, userId, image } = req.body; 
+    console.log(`Datos recibidos ${body, userId}, ${image}`);
+    console.log(req.body);
+    try {
+        if (!body || !userId) {
+            console.log("Faltan datos");
+            return res.status(400).json({ success: false, message: 'El cuerpo del post y el ID de usuario son requeridos' });
+        }
+        const postCreate = await PostUser.create({ body, userId, image });
+        console.log('Post creado:', postCreate);
+
+        res.status(201).json({ success: true, message: 'Post creado exitosamente', post: postCreate });
+    } catch (error) {
+        console.error('Error al crear post:', error);
+        res.status(500).json({ success: false, message: 'Error al crear post', error: error.message });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+
