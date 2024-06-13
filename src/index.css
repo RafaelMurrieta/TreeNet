@@ -64,22 +64,19 @@ button:focus-visible {
   }
 }
 
-
-.App{
+.App {
   display: flex;
   flex-direction: row;
 }
 
-
-.container-followingcard{
+.container-followingcard {
   height: 200px;
   border: 4px solid black;
   border-radius: 10px;
   padding: 10px;
 }
 
-
-.tw-follow-card{
+.tw-follow-card {
   width: 300px;
   display: flex;
   align-items: center;
@@ -88,30 +85,30 @@ button:focus-visible {
   justify-content: space-between;
 }
 
-.tw-follow-card .tw-follow-card-header{
+.tw-follow-card .tw-follow-card-header {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.tw-follow-card .tw-follow-card-header .tw-follow-card-info{
+.tw-follow-card .tw-follow-card-header .tw-follow-card-info {
   display: flex;
   flex-direction: column;
 }
 
-.tw-follow-card .tw-follow-card-header .tw-follow-card-info-user{
+.tw-follow-card .tw-follow-card-header .tw-follow-card-info-user {
   opacity: .6;
 }
 
-.tw-follow-card .tw-follow-card-avatar{
+.tw-follow-card .tw-follow-card-avatar {
   width: 48px;
   height: 48px;
   border-radius: 1000px;
 }
 
-.tw-follow-card .tw-follow-card-info-button{
+.tw-follow-card .tw-follow-card-info-button {
   margin-left: 16px;
-  border:  0;
+  border: 0;
   border-radius: 999px;
   padding: 6px 16px;
   font-weight: bold;
@@ -119,30 +116,73 @@ button:focus-visible {
   cursor: pointer;
 }
 
-.tw-follow-card-info-button.is-follow{
-  border:  1px solid red;
+.tw-follow-card-info-button.is-follow {
+  border: 1px solid red;
 }
 
-.tw-follow-card-info-button.is-follow:hover{
-  background:  red;
+.tw-follow-card-info-button.is-follow:hover {
+  background: red;
 }
 
-.tw-follow-card-info-button:hover{
+.tw-follow-card-info-button:hover {
   opacity: .6;
   transition: .3s ease opacity;
 }
-.home-display{
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin: 10px;
+}
+
+.search-container > input {
+  width: 70%;
+  height: 40px; 
+  padding: 10px 20px; 
+  border-radius: 20px; 
+  border: 2px solid #007BFF; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  font-size: 1rem; 
+  transition: border-color 0.3s ease;
+}
+
+.search-container > input:focus {
+  border-color: #0056b3; 
+  outline: none; 
+}
+
+.search-container > button {
+  width: 50px; 
+  height: 40px; 
+  border-radius: 20px; 
+  border: none; 
+  background-color: #007BFF;
+  color: #fff; 
+  font-size: 1rem; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.search-container > button:hover {
+  background-color: #0056b3; 
+  transform: scale(1.05); 
+}
+
+.home-display {
   width: 100%;
   display: flex;
   justify-content: space-around;
   height: 75vh;
 }
 
-.home-row-left{
-display: grid;
-width: 65%;
+.home-row-left {
+  display: grid;
+  width: 65%;
 }
-.home-row-right{
+
+.home-row-right {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -150,27 +190,4 @@ width: 65%;
   width: 30%;
   padding: auto;
 }
-
-  /*Estilos para el boton de buscar y el input*/
-  .search-container{
-    display:flex;
-    gap: 1px;
-    width: 100%;
-    margin: 10px;
-  }
-  .search-container > input{
-    width:100%;
-    height:30px;
-    padding: 25px 20px;
-    border-radius: 30px;
-  }
-
-  .search-input{
-    width: 80%;
-  }
-  .button-fixed{
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-  } 
 

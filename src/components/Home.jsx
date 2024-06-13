@@ -1,9 +1,10 @@
 import React from 'react';
 import { FollowCard } from "./FollowCard";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./../index.css"
-import Createpost from './Createpost';
+import Createpost from '/src/components/CreatePost.jsx';
+import Search from '/src/components/Search.jsx'; 
 
 export function Home({ username, setUser }) {
   const coockie = localStorage.getItem('coockieFill');
@@ -33,10 +34,10 @@ export function Home({ username, setUser }) {
         <Navbar setUser={setUser} /> 
         <div className="home-display">
           <div className="home-row-left">
-            
+            <Search />
           </div>
           <div className='home-row-right'>
-          <Createpost />
+            <Createpost />
             <section className="container-followingcard">
               {USERS.map(({ user, userName, initialFollow }) => (
                 <FollowCard 
