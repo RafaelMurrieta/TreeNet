@@ -57,13 +57,13 @@ const createPost = () => {
                 />
               </div>
               <div className="">
-                <label htmlFor="image">Image</label>
-                <input id="image" type="file" onChange={(e) => setImage(e.target.files[0])} />
+                <label htmlFor="image"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm1-4h12l-3.75-5l-3 4L9 13z"/></svg></label>
+                <input className='inputImage' id="image" type="file" onChange={(e) => setImage(e.target.files[0])} />
               </div>
             </div>
-            <div>
+            <div className='form-bottom-post'>
               <button onClick={handleSubmit} className="button-fixed">
-                Publish
+                Publicar
               </button>
             </div>
           </div>
