@@ -73,15 +73,15 @@ app.post('/createAccount', async (req, res) => {
 });
 
 app.post('/createpost', async (req, res) => {
-    const { body, userId, image } = req.body; 
-    console.log(`Datos recibidos ${body, userId}, ${image}`);
+    const { body, userId, image, date } = req.body; 
+    console.log(`Datos recibidos ${body, userId}, ${image}, ${date}`);
     console.log(req.body);
     try {
         if (!body || !userId) {
             console.log("Faltan datos");
             return res.status(400).json({ success: false, message: 'El cuerpo del post y el ID de usuario son requeridos' });
         }
-        const postCreate = await PostUser.create({ body, userId, image });
+        const postCreate = await PostUser.create({ body, userId, image , date});
         console.log('Post creado:', postCreate);
 
         res.status(201).json({ success: true, message: 'Post creado exitosamente', post: postCreate });
