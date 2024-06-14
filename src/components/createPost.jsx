@@ -29,6 +29,16 @@ const Createpost = () => {
     console.log("Contenido:", content);
     console.log("ID:", id);
     console.log("Imagen:", image);
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours(); 
+    const minute = date.getMinutes();  
+    const second = date.getSeconds();
+    console.log(year + "/" + month + "/" + day + " " + hour + ":" + minute+":"+second);
+    const newDate = year + "/" + month + "/" + day + " " + hour + ":" + minute+":"+second;
+
   
     if (!content.trim() || !id) {
       alert("El contenido o la identificación de usuario están vacíos");
@@ -41,7 +51,7 @@ const Createpost = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ body: content, userId: id, image: image }),
+        body: JSON.stringify({ body: content, userId: id, image: image, date: newDate }),
       });
       const result = await response.json();
       if (result.success) {

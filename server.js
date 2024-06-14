@@ -29,7 +29,8 @@ const UserSchema = new mongoose.Schema({
 const PostUserSchema = new mongoose.Schema({
     body: { type: String, required: true },
     userId: { type: String, required: true },
-    image: { type: String, required: false }
+    image: { type: String, required: false },
+    date: { type: String, required:true },
   }, { collection: 'post' });
 
 const User = mongoose.model('User', UserSchema);
