@@ -171,7 +171,7 @@ button:focus-visible {
 
 .search-input {
   width: 50%; 
-    height: 30px; 
+  height: 30px; 
   padding: 5px 15px; 
   border-radius: 50px; 
   border: 2px solid #007BFF;
@@ -181,7 +181,7 @@ button:focus-visible {
 }
 .search-button {
   width: 30px; 
-    height: 30px; 
+  height: 30px; 
   border: none;
   background-color: #007BFF;
   color: #fff;

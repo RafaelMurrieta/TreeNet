@@ -55,16 +55,12 @@ const Createpost = () => {
     }
   };
   
-  
-  
-  
-  
-
   return (
     <div>
-      <button className="px-4 py-2 rounded-md button-fixed" onClick={toggleOption}>
-        {isOption ? "Cancelar" : "Crear una publicación"}
-      </button>
+    <button className="button-fixed" onClick={toggleOption}>
+      {isOption ? "Cancelar" : "Crear una publicación"}
+    </button>
+  
 
       <Modal
         isOpen={isOption}
