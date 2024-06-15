@@ -17,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home user={user} setUser={setUser} />} />
         <Route path="*" element={<NoFound />} />
         <Route path='/sing-create' element={<Createaccount />} />
+        
       </Routes>
     </div>
   );
