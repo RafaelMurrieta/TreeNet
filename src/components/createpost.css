@@ -82,3 +82,28 @@
 .image-preview{
     width: 3em;
 }
+.createpost {
+    padding: 10px 20px; 
+    font-size: 1rem; 
+    font-weight: 500; 
+    border: none; 
+    border-radius: 8px;
+    background-color: #007BFF; 
+    color: #fff; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .createpost:hover {
+    background-color: #0056b3; 
+  }
+  
+  .createpost:focus,
+  .createpost:focus-visible {
+    outline: none; 
+  }
+  
+  .createpost:active {
+    transform: scale(0.98); 
+  }
+  

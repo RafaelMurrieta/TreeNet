@@ -3,7 +3,7 @@ import { FollowCard } from "./FollowCard";
 import { Navigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./../index.css"
-import Createpost from './Createpost';
+import Createpost from './createPost';
 import Search from './Search.jsx'; 
 
 export function Home({ username, setUser }) {
