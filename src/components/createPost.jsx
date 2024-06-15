@@ -29,6 +29,7 @@ const Createpost = () => {
     console.log("Contenido:", content);
     console.log("ID:", id);
     console.log("Imagen:", image);
+
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -36,23 +37,28 @@ const Createpost = () => {
     const hour = date.getHours(); 
     const minute = date.getMinutes();  
     const second = date.getSeconds();
-    console.log(year + "/" + month + "/" + day + " " + hour + ":" + minute+":"+second);
-    const newDate = year + "/" + month + "/" + day + " " + hour + ":" + minute+":"+second;
+    const newDate = `${year}/${month}/${day} ${hour}:${minute}:${second}`;
 
-  
     if (!content.trim() || !id) {
       alert("El contenido o la identificación de usuario están vacíos");
       return;
     }
-  
+
     try {
+      // Crear un objeto FormData para enviar datos y archivos juntos
+      const formData = new FormData();
+      formData.append('body', content);
+      formData.append('userId', id);
+      formData.append('date', newDate);
+      if (image) {
+        formData.append('image', image);
+      }
+
       const response = await fetch('http://localhost:3001/createpost', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ body: content, userId: id, image: image, date: newDate }),
+        body: formData,
       });
+
       const result = await response.json();
       if (result.success) {
         console.log("Post creado exitosamente:", result);
@@ -64,11 +70,6 @@ const Createpost = () => {
       alert("Hubo un error al conectar con el servidor");
     }
   };
-  
-  
-  
-  
-  
 
   return (
     <div>
@@ -113,7 +114,7 @@ const Createpost = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm1-4h12l-3.75-5l-3 4L9 13z"/></svg>
                   )}
                   {imagePreview ? (
-                    <p>Imagen cargada con exito</p>
+                    <p>Imagen cargada con éxito</p>
                   ) : (
                     <p>Sube una imagen</p>
                   )}

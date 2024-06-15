@@ -2,7 +2,7 @@ import express, { response } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { type } from 'os';
+import multer from 'multer';
 
 const app = express();
 const port = 3001;
@@ -17,6 +17,16 @@ mongoose.connect(uri)
     .then(() => console.log('Conectado a MongoDB Atlas'))
     .catch((err) => console.error('Error al conectar a MongoDB Atlas:', err));
 
+    
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './uploads'); // Directorio donde se guardarán temporalmente las imágenes
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + '-' + file.originalname); // Nombre de archivo único
+    }
+});
 // Definir esquema y modelo de usuario
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -72,24 +82,36 @@ app.post('/createAccount', async (req, res) => {
     }
 });
 
-app.post('/createpost', async (req, res) => {
-    const { body, userId, image, date } = req.body; 
-    console.log(`Datos recibidos ${body, userId}, ${image}, ${date}`);
-    console.log(req.body);
-    try {
-        if (!body || !userId) {
-            console.log("Faltan datos");
-            return res.status(400).json({ success: false, message: 'El cuerpo del post y el ID de usuario son requeridos' });
-        }
-        const postCreate = await PostUser.create({ body, userId, image , date});
-        console.log('Post creado:', postCreate);
+const upload = multer({ storage: storage });
 
-        res.status(201).json({ success: true, message: 'Post creado exitosamente', post: postCreate });
+app.post('/createpost', upload.single('image'), async (req, res) => {
+    const { body, userId, date } = req.body;
+    let image = null; // Inicializamos image como null
+    
+    if (req.file) {
+        image = req.file.filename; // Asignamos el nombre del archivo si existe
+    }
+  
+    console.log(`Datos recibidos ${body}, ${userId}, ${date}, ${image}`);
+  
+    try {
+      if (!body || !userId) {
+        console.log("Faltan datos");
+        return res.status(400).json({ success: false, message: 'El cuerpo del post y el ID de usuario son requeridos' });
+      }
+  
+      // Guardamos el post en la base de datos
+      const postCreate = await PostUser.create({ body, userId, image, date });
+      console.log('Post creado:', postCreate);
+  
+      res.status(201).json({ success: true, message: 'Post creado exitosamente', post: postCreate });
     } catch (error) {
-        console.error('Error al crear post:', error);
-        res.status(500).json({ success: false, message: 'Error al crear post', error: error.message });
+      console.error('Error al crear post:', error);
+      res.status(500).json({ success: false, message: 'Error al crear post', error: error.message });
     }
 });
+
+
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
