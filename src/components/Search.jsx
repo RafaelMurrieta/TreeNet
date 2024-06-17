@@ -1,5 +1,6 @@
 import React from 'react';
 import './../index.css';
+import Post from './Post';
 
 const Search = () => {
   return (
@@ -9,6 +10,7 @@ const Search = () => {
         <button className='search-button'><i className="fas fa-search search-icon"></i></button>
       </div>
       <div className="posts-container">
+        <Post />
       </div>
     </div>
   );

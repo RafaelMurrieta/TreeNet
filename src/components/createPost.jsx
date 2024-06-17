@@ -78,7 +78,7 @@ const Createpost = () => {
 
   return (
     <div>
-    <button className="button-fixed" onClick={toggleOption}>
+    <button className="btn-createpost" onClick={toggleOption}>
       {isOption ? "Cancelar" : "Crear una publicación"}
     </button>
   

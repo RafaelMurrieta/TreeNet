@@ -111,7 +111,15 @@ app.post('/createpost', upload.single('image'), async (req, res) => {
     }
 });
 
-
+app.get('/posts', async (req, res) => {
+    try {
+        const posts = await PostUser.find();
+        res.json(posts);
+    } catch (err) {
+        console.error('Error al obtener posts:', err);
+        res.status(500).json({ error: 'Error al obtener posts' });
+    }
+});
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
