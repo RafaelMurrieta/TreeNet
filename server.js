@@ -111,13 +111,46 @@ app.post('/createpost', upload.single('image'), async (req, res) => {
     }
 });
 
-app.get('/posts', async (req, res) => {
+// Ruta para obtener todos los posts con información del usuario
+app.get('/postsWithUser', async (req, res) => {
     try {
-        const posts = await PostUser.find();
+        const posts = await PostUser.aggregate([
+            {
+                $addFields: {
+                    userIdObjectId: {
+                        $toObjectId: "$userId"
+                    }
+                }
+            },
+            {
+                $lookup: {
+                    from: 'users', // Nombre de la colección 'users'
+                    localField: 'userIdObjectId', // Campo convertido a ObjectId
+                    foreignField: '_id', // Campo en 'users' que es el ID de usuario
+                    as: 'user' // Nombre del campo que contendrá los datos del usuario
+                }
+            },
+            {
+                $unwind: '$user' // Desglosar el array 'user' para obtener un objeto
+            },
+            {
+                $project: {
+                    body: 1,
+                    date: 1,
+                    image: 1,
+                    'user.name': 1 // Incluir solo el nombre del usuario
+                }
+            },
+            {
+                $sort: {
+                    date: -1 // Ordenar por fecha en orden descendente
+                }
+            }
+        ]);
         res.json(posts);
     } catch (err) {
-        console.error('Error al obtener posts:', err);
-        res.status(500).json({ error: 'Error al obtener posts' });
+        console.error('Error al obtener posts con usuario:', err);
+        res.status(500).json({ error: 'Error al obtener posts con usuario' });
     }
 });
 
